@@ -6,6 +6,8 @@
 # importing modules
 import itertools, random
 
+# test comment
+
 ndeck=4
 # make a deck of cards
 #deck = list(itertools.product(range(1,14),['Spade','Heart','Diamond','Club'])
