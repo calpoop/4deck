@@ -4,11 +4,13 @@ usage:
 
 first, create the list of emails in a file called "emails.txt"
 
-the format of the following should be as follows:
+the format of the file should be as follows:
 
+```
 email1@example.com  
 email2@example.com  
 email3@example.com  
+```
 
 1 email per line, nothing else. Each line delimited by a newline character
 
