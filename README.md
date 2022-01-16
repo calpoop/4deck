@@ -22,11 +22,11 @@ then run the following:
 this should email a hand to every player on the emails.txt file for however many rounds you set
 
 
-NOTE:
-The machine running this script needs to be able to run bash and use the "mail" command, and the mail command needs to be set up such that an email is already set.
+NOTE:  
+The machine running this script needs to be able to run bash and use the "mail" command, and the mail command needs to be set up such that an email is already set.  
 
-example on Ubuntu 20.04/20.10:
+example on Ubuntu 20.04/20.10:  
 
-reference: https://devanswers.co/configure-postfix-to-use-gmail-smtp-on-ubuntu-16-04-digitalocean-droplet/
+reference: https://devanswers.co/configure-postfix-to-use-gmail-smtp-on-ubuntu-16-04-digitalocean-droplet/  
 
 if you are using gmail, you need to find the setting to "enable less secure app access" at least while you intend to run the `mail` command
