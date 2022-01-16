@@ -22,9 +22,7 @@ for email in $(cat ${email_file}); do
 done
 
 player_number=1
-#emails=("yli62@yahoo.com" "ytian62@yahoo.com")
 number_of_players=${#emails[@]}
-
 
 number_of_decks=4
 number_of_cards=$((${number_of_decks}*54))
@@ -36,7 +34,6 @@ echo "The number of players is ${number_of_players}"
 echo "The number of decks is ${number_of_decks}"
 echo "The number of cards in play is ${number_of_cards}"
 echo "The number of cards per hand is ${cards_per_hand}"
-
 
 
 # sed '<>, <>p' needs to be number of cards divided by number of players
