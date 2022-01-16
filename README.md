@@ -28,6 +28,5 @@ The machine running this script needs to be able to run bash and use the "mail" 
 example on Ubuntu 20.04/20.10:
 
 reference: https://devanswers.co/configure-postfix-to-use-gmail-smtp-on-ubuntu-16-04-digitalocean-droplet/
-```
 
 if you are using gmail, you need to find the setting to "enable less secure app access" at least while you intend to run the `mail` command
