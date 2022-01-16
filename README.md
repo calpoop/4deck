@@ -16,7 +16,7 @@ email3@example.com
 
 then run the following:
 
-./email_4deck_wrapper.sh <number of rounds to play>
+./email_4deck_wrapper.sh <<number_of_rounds_to_play>>
 
 
 this should email a hand to every player on the emails.txt file for however many rounds you set
