@@ -5,53 +5,49 @@ if [ $1 ]; then
     round=$1
 fi
 
+email_file="emails.txt"
+if [ $2 ]; then
+    email_file=$2
+fi
+
 file=hand_$(date +%m%d)_$round
 [ ! -f $file ] && python3 4deck.py >$file
 
 
-echo
-echo player: 1
-echo round:  $round
-cat $file| sed -n '1,27p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 1 round $round" tengwendy07@gmail.com
+# read emails from email file
+emails=()
+for email in $(cat ${email_file}); do
+    echo $email
+    emails+=(${email})
+done
 
-echo
-echo player: 2
-echo round:  $round
-cat $file| sed -n '28,54p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 2 round $round" hli_w@yahoo.com
+player_number=1
+#emails=("yli62@yahoo.com" "ytian62@yahoo.com")
+number_of_players=${#emails[@]}
 
-echo
-echo player: 3
-echo round:  $round
-cat $file| sed -n '55,81p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 3 round $round" jih@georgetown.edu
 
-echo
-echo player: 4
-echo round:  $round
-cat $file| sed -n '82,108p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 4 round $round" chianchen816@gmail.com
+number_of_decks=4
+number_of_cards=$((${number_of_decks}*54))
 
-echo
-echo player: 5
-echo round:  $round
-cat $file| sed -n '109,135p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 5 round $round" phu_99@yahoo.com
+cards_per_hand=$((${number_of_cards}/${number_of_players}))
+card_index=1
 
-echo
-echo player: 6
-echo round:  $round
-cat $file| sed -n '136,162p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 6 round $round" jzhao@italkbb.com
-
-echo
-echo player: 7
-echo round:  $round
-cat $file| sed -n '163,189p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 7 round $round" ytian62@yahoo.com
-
-echo
-echo player: 8
-echo round:  $round
-cat $file| sed -n '190,216p'|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player 8 round $round" yli62@yahoo.com
+echo "The number of players is ${number_of_players}"
+echo "The number of decks is ${number_of_decks}"
+echo "The number of cards in play is ${number_of_cards}"
+echo "The number of cards per hand is ${cards_per_hand}"
 
 
 
-
-
-
-
+# sed '<>, <>p' needs to be number of cards divided by number of players
+for email_address in "${emails[@]}"
+do
+    second_card_index=$(($card_index+$cards_per_hand-1))
+    echo
+    echo player: $player_number
+    echo round:  $round
+    echo "player email: ${email_address}"
+    cat $file| sed -n "${card_index},${second_card_index}p"|sort -r |perl f1.pl | sh f2.sh | mail -s "card for player ${player_number} round $round" $email_address
+    player_number=$((player_number+1))
+    card_index=$((second_card_index+1))
+done
