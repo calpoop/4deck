@@ -23,9 +23,9 @@ this should email a hand to every player on the emails.txt file for however many
 
 
 **NOTE**:  
-The machine running this script needs to be able to run bash and use the "mail" command, and the mail command needs to be set up such that an email is already set.  
+The machine running this script needs to be able to run bash and use the `mail` command, and the `mail` command needs to be set up such that an email is already set.  
 
-*example on Ubuntu 20.04/20.10*:  
+*example on Ubuntu*:  
 
 reference: https://devanswers.co/configure-postfix-to-use-gmail-smtp-on-ubuntu-16-04-digitalocean-droplet/  
 
